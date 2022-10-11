@@ -2,11 +2,17 @@ from flask import Flask,render_template,request,redirect, url_for,flash
 import mysql.connector as sql
 import random,json,pickle
 import numpy as np 
+import os
 import nltk , webbrowser
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
+from database import user_passwd
 
-mydb = sql.connect(host="localhost",user="root",password="123456",database="bankManagement",autocommit=True)
+
+os.system("pip install -r requirements.txt")
+os.system("python database.py")
+
+mydb = sql.connect(host="localhost",user="root",password=user_passwd,database="bankmanagement",autocommit=True)
 cur = mydb.cursor(dictionary=True)
 cur.execute("select * from account;")
 usersDic = cur.fetchall()
@@ -159,7 +165,7 @@ def changeDetails(accno):
     else:
         status_message()
         return redirect(url_for("Login"))
-    return render_template("changedetails.html")
+    return render_template("changedetails.html",accno=accno)
 
 @app.route("/balanceEnquiry/<string:accno>",methods=["GET","POST"])
 def balanceEq(accno):
@@ -187,6 +193,8 @@ def customerDetails(accno):
 def deleteAccount(accno):
     cur.execute("SET SQL_SAFE_UPDATES = 0;")
     cur.execute(f"delete from account where AccNo = '{accno}';")
+    global status
+    status = False
     flash("Successfully Deleted!!!")
     return redirect(url_for('Login')) 
 
@@ -218,4 +226,4 @@ def transfer(accno):
         return redirect(url_for("Login"))
     return render_template("transfer.html")
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=2343)
+    app.run()
