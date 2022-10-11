@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details|AXB BANK</title>
+    <link rel="stylesheet" href="/static/viewacc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    {% include 'navbar.html' %}
+    <br>
+    {% for data in datas %}
+    <div class="box">
+    <div class="card border-dark mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 540px; ">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://cdn.pixabay.com/photo/2013/07/13/12/07/avatar-159236_960_720.png" class="img-fluid rounded-start" alt="https://cdn.pixabay.com/photo/2013/07/13/12/07/avatar-159236_960_720.png">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">{{data.AccNo[:-3]+rep}}</h4>
+              <h4 class="card-text">{{data.Name}}</h4>
+                <h4 class="card-text">{{data.Email}}</h4>
+              <h3 class="card-text">&#x20B9; {{data.Balance}}</h3>
+              <small class="text-muted">Savings Account</small>
+            </div>
+          </div>
+          <!-- #0d6efd -->
+          <a href="{{url_for('home',accno=data.AccNo,name=data.Name)}}" class="btn btn-primary">Go Back</a>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+    {% include 'chat.html'%}
+</body>
+</html>

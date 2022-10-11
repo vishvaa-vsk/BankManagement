@@ -1,0 +1,48 @@
+<!-- CHAT BAR BLOCK -->
+<link rel="stylesheet" href="{{ url_for('static', filename='chat.css')}}">
+<script src="https://kit.fontawesome.com/e971ca7e25.js" crossorigin="anonymous"></script>
+
+
+<div class="chat-bar-collapsible">
+    <button id="chat-button" class="collapsible">
+        <div class = "smallicon" align="right" >
+            <img src="/static/chatbot-icon.png" alt="chatbot-icon.jpg">
+        </div>
+    </button>
+    <div class="content">
+        <div class="full-chat-block">
+            <!-- Message Container -->
+            <div class="outer-container">
+                <div class="chat-container">
+                    <!-- Messages -->
+                    <div id="chatbox">
+                        <h4 id="chat-timestamp"></h4>
+                        <p id="botStarterMessage" class="botText"><span>Hey there!, How can I help you?</span></p>
+                    </div>
+
+                    <!-- User input box -->
+                    <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <input id="textInput" class="input-box" type="text" name="msg"
+                                placeholder="Message...">
+                            <p></p>
+                        </div>
+
+                        <div class="chat-bar-icons">
+                            <i id="chat-icon" style="color: rgb(0, 0, 0);" class="fa fa-send"
+                                onclick="sendButton()"></i>
+                        </div>
+                    </div>
+
+                    <div id="chat-bar-bottom">
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='chat.js')}}"></script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>AXB BANK | AccountNo is</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<style>
+    body{
+        padding-top: 150px;
+        background-color: #ecf3f8;
+    }
+</style>
+<body>
+    <div class="box shadow p-3 mb-5 bg-body rounded">
+        <span>Account Created Sucessfully!!</span>
+        <br>
+        <span><b>Hello {{name}}! 👋</b></span><br>
+        <span>Your Account Number is <b>{{AccNo}}</b></span><br>
+        <span>*Please note this for further transactions!!*</span><br>
+        <span>Thanks for Signing up ! Happy transactions!!!</span><br>
+        <a href="{{url_for('Login')}}" class="btn btn-success btn-lg">Go Back</a>
+    </div>
+</body>
+</html>

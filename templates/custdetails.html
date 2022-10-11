@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    {% include 'navbar.html' %}
+    <br>
+    {% for data in records %}
+    <div class="box-details shadow p-3 mb-5 bg-body rounded">
+        <label for="name">Name - </label>
+        <span id="name">{{data.Name}}</span><br>
+        
+        <label for="accno">Account No - </label>
+        <span id="accno">{{data.AccNo}}</span><br>
+
+        <label for="address">Address - </label>
+        <span id="address">{{data.Address}}</span><br>
+
+        <label for="DOB">DOB - </label>
+        <span id="DOB">{{data.DOB}}</span><br>
+
+        <label for="email">Email - </label>
+        <span id="email">{{data.Email}}</span><br>
+        
+        <label for="cno">Contact Number - </label>
+        <span id="cno">{{data.ContactNo}}</span><br>
+
+        <p>Want to Reset or Change Password? <a href="{{url_for('resetPassword')}}" style="text-decoration: none; color:mediumturquoise;">click here</a></p>
+        <a href="{{url_for('home',accno=data.AccNo,name=data.Name)}}" type="button" class="btn btn-primary">Go Back</a>
+        <a href="{{url_for('changeDetails',accno=data.AccNo)}}" class="btn btn-warning">Edit Details</a>
+    </div> 
+    {% endfor %}
+    {% include 'chat.html'%}   
+</body>
+</html>

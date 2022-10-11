@@ -1,0 +1,56 @@
+body{
+    background-color: #ecf3f8;
+  }
+
+.IBSignup{
+    align-items: center;
+    width: 600px;
+    height: 560px;
+    border: 2px solid transparent;
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #daf3ff;
+  }
+  .IBSignup h3{
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(248, 107, 88);
+  }
+
+  #signupmsg{
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #d02552;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .iblogin label {
+    line-height: 60px;
+    font-weight: 550;
+    font-size: 25px;
+    font-family:'Poppins', sans-serif;
+  }
+  .iblogin input{
+    outline: none;
+    padding: 7px;
+    border:1px solid grey;
+    border-radius: 7px;
+    width: 200px;
+    font-size: 20px;
+  }
+  .iblogin input:focus{
+    border: 1px solid #65ceff;
+    box-shadow: #65ceff;
+  }
+  #login{
+    padding: 10px;
+    width: 130px;
+    color: white;
+    font-size: 20px;
+    border: 1px solid transparent;
+    background-color: #d02552;
+    border-radius: 10px;
+  }
