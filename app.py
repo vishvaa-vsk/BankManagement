@@ -6,7 +6,7 @@ import nltk , webbrowser
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
 
-mydb = sql.connect(host="localhost",user="root",password="vishvaa_vsk",database="bankManagement",autocommit=True)
+mydb = sql.connect(host="localhost",user="root",password="123456",database="bankManagement",autocommit=True)
 cur = mydb.cursor(dictionary=True)
 cur.execute("select * from account;")
 usersDic = cur.fetchall()
