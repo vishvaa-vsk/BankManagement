@@ -7,40 +7,44 @@
     <title>INTERNET BANKING|AXB BANK</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='chat.css')}}">
     <script src="https://kit.fontawesome.com/e971ca7e25.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/home.css">
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     {% include 'navbar.html' %}
-    <br>
-    <div class="Menus"> 
-    <div id="welcomemsg">
-        <h3>Welcome <strong>{{name}}</strong></h3>
+  <div class="Menus"> 
+      <h3 id="welcomemsg">Welcome <strong>{{name}}</strong></h3>
+      <h4 style="color: #65ceff;">Available Services</h4>
+    <div>
+      <button class="buttons">
+          <a href="{{ url_for('balanceEq')}}">Balance Enquiry</a>
+          <i class="bi bi-piggy-bank" ></i>
+      </button><br>
+      <button class="buttons">
+          <a href="{{ url_for('transfer') }}">Transfer Money</a>
+          <i class="bi bi-cash-coin"></i>
+      </button><br>
+      <button class="buttons">
+        <a href="{{url_for('trans_history')}}">Transaction History</a>
+        <i class="bi bi-clock-history"></i>
+      </button><br>
+      <button class="buttons">
+          <a href="{{url_for('customerDetails')}}">View My Details</a>
+          <i class="bi bi-bank"></i>
+      </button><br>
+      <button class="buttons">
+          <a href="{{url_for('resetPassword')}}">Reset Password</a>
+          <i class="bi bi-arrow-right-circle-fill"></i>
+      </button><br>
+      
+      <button class="buttons" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <a>Close Account</a>
+          <i class="bi bi-trash3"></i>
+        </button>
     </div>
-    <br>
-    <h4>Available Services</h4>
-    <button class="buttons">
-        <a href="{{url_for('balanceEq',accno=accno)}}">Balance Enquiry</a>
-        <i class="bi bi-piggy-bank" ></i>
-    </button><br>
-    <button class="buttons">
-        <a href="{{ url_for('transfer',accno=accno ) }}">Transfer Money</a>
-        <i class="bi bi-cash-coin"></i>
-    </button><br> 
-    <button class="buttons">
-        <a href="{{url_for('customerDetails',accno=accno)}}">View My Details</a>
-        <i class="bi bi-bank"></i>
-    </button><br>
-    <button class="buttons">
-        <a href="{{url_for('resetPassword')}}">Reset Password</a>
-        <i class="bi bi-arrow-right-circle-fill"></i>
-    </button><br>
-    <button class="buttons" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        <a>Close Account</a>
-        <i class="bi bi-trash3"></i>
-      </button>
-    </div> 
+  </div> 
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -50,16 +54,15 @@
             </div>
             <div class="modal-body">
              Are you sure to delete the account?<br>
-             <strong>*You can't able access the account after this??*</strong>
+             <strong>You can't able access the account after this??</strong>
             </div>
             <div class="modal-footer">
               <button  class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.href='#'">Close</button>
-              <a href="{{url_for('deleteAccount',accno=accno)}}" class="btn btn-danger">Confirm</a>
+              <a href="{{url_for('deleteAccount')}}" class="btn btn-danger">Confirm</a>
             </div>
           </div>
         </div>
       </div>
-      <br>
-      {% include 'chat.html' %}
+      <br> 
 </body>
 </html>

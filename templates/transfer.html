@@ -17,28 +17,46 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     {% for message in get_flashed_messages() %}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{message}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+        {% if message == "Transfer Successfull" %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{message}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> 
+        {% else %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{message}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
     {% endfor %}
     <div class="IBtransfer shadow p-3 mb-5 bg-body rounded">
-        <form action="" method="post">
-            <div class="iblogin">
-            <label for="from">From</label><br>
-            <input type="text" name="from" required placeholder="Your Account Number"><br>
-            <label for="to">To</label><br>
-            <input type="text" name="toaccno" required placeholder="Payee Account Number"><br>
-            <label for="amount">Amount</label><br>
-            <input type="number" name="amount" required placeholder="Amount to be Transfered"><br>
-            <label for="passwd">Password</label><br>
-            <input type="password" name="passwd" required placeholder="Enter password"><br>
-            <button type="button" class="btn btn-light" id="bu" onclick="document.getElementById('bu').style.backgroundColor='yellow';">IMPS</button>
-            <button type="button" class="btn btn-light" id="bu" onclick="document.getElementById('bu').style.backgroundColor='yellow';">NEFT</button><br>
-            <button type="submit" class="btn btn-primary">Transfer</button><br> 
-            </div>
-        </form>
+        <form action="/transfer" method="POST">
+            <label for="">From</label>
+              <select class="form-select" aria-label="Default select example" name="from" >
+                <option value="{{accno}}" >{{accno}}</option required placeholder="From Account Number">
+              </select><br>
+            <div class="form-floating">
+                <input type="text" class="form-control" name="to" id="floatingPassword" placeholder="Payee Account Number"required>
+                <label for="floatingPassword">Payee Account Number</label>
+            </div><br>
+            <div class="form-floating">
+                <input type="number" class="form-control" name="amount" id="floatingPassword" placeholder="Amount"required>
+                <label for="floatingPassword">Amount</label>
+            </div><br>
+            <div class="form-floating">
+                <input type="password" class="form-control" name="passwd" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+            </div><br>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="trans-type" required>
+              <option selected>Select Transaction Type</option>
+              <option value="IMPS" aria-required="true">IMPS</option>
+              <option value="RTGS"aria-required="true">RTGS</option>
+              <option value="NEFT"aria-required="true">NEFT</option>
+            </select><br>
+            <a href="{{url_for('home')}}" class="btn btn-warning">Go Back</a>
+            <input type="submit"class="btn btn-primary" value="Transfer"> 
+          </form>
     </div>
-    {% include 'chat.html'%}
+    
 </body>
 </html>

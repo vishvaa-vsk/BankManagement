@@ -1,0 +1,23 @@
+#history {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #history td, #history th {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #history tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #history tr:hover {background-color: #ddd;}
+  
+  #history th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #42ac67;
+    color: white;
+  }

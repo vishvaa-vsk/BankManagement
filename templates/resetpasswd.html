@@ -25,9 +25,9 @@
             <label for="passwd">Retype your password</label><br>
                 <input type="password" name="re-passwd">
         </div><br>
+        <a href="{{ url_for('home') }}"class="btn btn-warning" type="button">Go Back</a>
         <button type="submit" class="btn btn-danger">Reset</button><br>
     </form>
     </div>
-    {% include 'chat.html'%}
 </body>
 </html>

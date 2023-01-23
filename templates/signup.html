@@ -13,41 +13,50 @@
     {% include 'navbar.html'%}
     <br>
     {% for message in get_flashed_messages() %}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
         {{message}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     {% endfor %}
     <br>
 <div class="IBSignup shadow p-3 mb-5 bg-body rounded">
-        <h3>Register now</h3>
+        <h3>Register now</h3><br>
     <form action="/signup" method="post">
-        <div class="iblogin">
-            <label for="name ">Name</label>
-            <input type="text" name="name" id="name" required><br>
-
-            <label for="address">Address</label>
-            <input type="text" name="address" id="address" required><br>
-
-            <label for="number">Contact Number</label>
-            <input type="text" name="cno" id="cno" required><br>
-
-            <label for="dob">Date of Birth</label>
-            <input type="date" name="dob" id="dob" required><br>
-
-            <label for="obal">Opening Balance</label>   
-            <input type="number" name="obal" id="obal" required><br>
-        
-            <label for="email">Email ID</label>
-            <input type="email" name="email" id="email" required><br>
-
-            <label for="passwd">Password</label>
-            <input type="password" name="passwd" required><br>
-
-            <label for="passwd">Retype your password</label>
-            <input type="password" name="re-passwd" required>
-        </div>
-        <button type="submit" class="btn btn-success btn-lg">SignUp</button><br>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="name" placeholder="Name" reqiured id="floatingInput">
+                <label for="floatingInput">Name</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Address" name="address"id="floatingTextarea2" style="height: 100px"  reqiured></textarea>
+                <label for="floatingTextarea2">Address</label>
+            </div><br>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="cno" id="floatingInput" placeholder="91000000000"  reqiured>
+                <label for="floatingInput">Contact Number</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="date" class="form-control"  name="dob" id="floatingInput"  placeholder="Date of Birth" reqiured >
+                <label for="floatingInput">Date of birth</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="email" id="floatingInput" placeholder="Email" reqiured >
+                <label for="floatingInput">Email address</label>
+            </div>
+            <select class="form-select" aria-label="Default select example" name="acc-type" >
+                <option value="Savings" >Savings Account</option required placeholder="Account Type">
+                <option value="Current" >Current Account</option required placeholder="Account Type">
+                <option value="Child" >Child Account</option required placeholder="Account Type">
+            </select><br>
+              <div class="form-floating">
+                <input type="password" class="form-control" name="passwd" id="floatingPassword" placeholder="Password"  reqiured>
+                <label for="floatingPassword">Password</label>
+              </div>
+              <br>
+              <div class="form-floating">
+                <input type="password" class="form-control"name="re-passwd" id="floatingPassword" placeholder="Password"  reqiured>
+                <label for="floatingPassword">Retype Password</label>
+              </div><br>
+        <button type="submit"class="btn btn-success btn-lg">SignUp</button>
     </form>
         <label id="msg" >Have a account?? <a href="{{url_for('Login')}}">Try Login!</a></label>
  </div>
